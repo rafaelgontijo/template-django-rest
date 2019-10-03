@@ -1,7 +1,8 @@
 # Template para projetos Django Rest
 
-Você precisa criar uma API escalável em um prazo. Você se preocupa profundamente com a qualidade do seu trabalho.
-O `template-django-rest` cuida dos detalhes para que você possa se concentrar em tornar sua API incrível. O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recursos à API e começar a entregar.
+Você precisa criar uma API escalável em um prazo curto, e se preocupa profundamente com a qualidade do seu trabalho.
+O `template-django-rest` cuida dos detalhes para que você possa se concentrar em tornar sua API incrível.
+O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recursos à API e começar a entregar.
 
 ## Highlights
 - Desenvolvimento moderno de Python com Python 3.6+
