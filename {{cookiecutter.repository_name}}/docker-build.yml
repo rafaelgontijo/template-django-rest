@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    image: '{{cookiecutter.repository_name}}_production:latest'

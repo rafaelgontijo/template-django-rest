@@ -1,0 +1,12 @@
+# General
+# ------------------------------------------------------------------------------
+DJANGO_DEBUG=True
+SECRET_KEY=dev
+
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB={{cookiecutter.repository_name}}
+POSTGRES_USER={{cookiecutter.repository_name}}
+POSTGRES_PASSWORD=fbfa2401d1be3a1ca1fb2bb7633defcee8162faa59f6da8254440a02df2fd7b3
