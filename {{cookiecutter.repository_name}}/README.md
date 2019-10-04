@@ -39,6 +39,10 @@ Juntamente com isso você tem um ambiente de debug remoto rodando na porta "5678
 
 Esse projeto segue os preceitos do [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
+### Linter
+
+Configure o seu Editor/IDE para utilizar o flake8 como linter
+
 ## Produção
 
 Para o ambiente de produção esse projeto esta preparado para usar o [Docker Swarm](https://docs.docker.com/engine/swarm/)
