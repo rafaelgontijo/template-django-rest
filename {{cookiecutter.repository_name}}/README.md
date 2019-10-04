@@ -9,7 +9,7 @@
 
 ## Desenvolvimento
 
-Iniciar o ambiente de desenvolvimento, após terminar de rodar o script de iniciação, você terá a api disponível na url: http://localhost:8000/api/v1/ e também tera um ambiente de teste de caixa de email na url: http://localhost:8025
+Iniciar o ambiente de desenvolvimento, após terminar de rodar o script de iniciação, você terá a api disponível na url: http://localhost:8000/api/v1/ e também um ambiente de simulação de caixa de email na url: http://localhost:8025
 :
 ```bash
 make up
