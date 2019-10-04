@@ -9,7 +9,7 @@
 
 ## Desenvolvimento
 
-Iniciar o ambiente de desenvolvimento, após terminar de rodar o script de iniciação, você terá a api disponível na url: http://localhost:8000/api/v1/ e também um ambiente de simulação de caixa de email na url: http://localhost:8025
+Iniciar o ambiente de desenvolvimento:
 :
 ```bash
 make up
@@ -29,6 +29,15 @@ Ex:
 ```bash
 docker-compose run --rm django python manage.py makemessages -l en -l pt_BR
 ```
+
+### Ambiente de desenvolvimento
+
+Ao rodar o comando para iniciar o ambiente de desenvolvimento, você terá a api disponível na url: http://localhost:8000/api/v1/ e também um ambiente de simulação de caixa de email na url: http://localhost:8025.
+Juntamente com isso você tem um ambiente de debug remoto rodando na porta "5678", podendo ser usado no Vscode
+
+### Git Flow
+
+Esse projeto segue os preceitos do [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
 ## Produção
 
