@@ -72,6 +72,11 @@ class Common(Configuration):
         ('pt-br', u'Português'),
     )
     LANGUAGE_CODE = config('LANGUAGE_CODE', default='pt-br')
+
+    LOCALE_PATHS = (
+        os.path.join(BASE_DIR, 'locale'),
+    )
+
     # If you set this to False, Django will make some optimizations so as not
     # to load the internationalization machinery.
     USE_I18N = True

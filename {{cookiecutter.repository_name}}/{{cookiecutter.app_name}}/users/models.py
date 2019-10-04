@@ -1,12 +1,8 @@
 import uuid
 from django.db import models
-from django.conf import settings
-from django.dispatch import receiver
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.db.models.signals import post_save
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-from rest_framework.authtoken.models import Token
 
 
 class UserManager(BaseUserManager):
@@ -81,12 +77,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         ),
     )
 
-    is_email_verified = models.BooleanField(
-        _('verified email'),
-        default=False,
-        help_text=_('Notifies whether the user has verified its email address.'),
-    )
-
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
@@ -98,8 +88,3 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
