@@ -38,9 +38,6 @@ class UserChangeForm(forms.ModelForm):
     """
     password = ReadOnlyPasswordHashField(label=_('Password'))
 
-    cpf = forms.CharField(label='CPF', empty_value=None, required=False)
-    cellphone = forms.CharField(label=_('Cellphone number'), empty_value=None, required=False)
-
     class Meta:
         model = User
         fields = '__all__'

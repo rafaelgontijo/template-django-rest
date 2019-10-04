@@ -14,12 +14,12 @@ class UserAdmin(UserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'name', 'date_joined', 'is_superuser', 'is_email_verified')
-    list_filter = ('email', 'name', 'date_joined', 'is_superuser', 'is_email_verified')
+    list_display = ('email', 'name', 'date_joined', 'is_superuser')
+    list_filter = ('email', 'name', 'date_joined', 'is_superuser')
 
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal info'), {'fields': ('name', 'dob', 'cpf', 'gender', 'cellphone', 'is_email_verified')}),
+        (_('Personal info'), {'fields': ('name',)}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -38,6 +38,6 @@ class UserAdmin(UserAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
-            return ['name', 'email', 'last_login', 'date_joined', 'is_email_verified']
+            return ['name', 'email', 'last_login', 'date_joined']
         else:
-            return ['last_login', 'date_joined', 'is_email_verified']
+            return ['last_login', 'date_joined']
