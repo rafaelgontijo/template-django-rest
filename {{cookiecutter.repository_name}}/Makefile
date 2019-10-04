@@ -28,9 +28,8 @@ build-nc: ## Build the container without caching
 up: ## Spin up the project
 	docker-compose up --build
 
-# Run tests inside container
 test: ## Run tests from the project
-    docker-compose run --rm django python manage.py test
+	docker-compose run --rm django python manage.py test
 
 stop: ## Stop running containers
 	docker-compose stop
@@ -56,4 +55,4 @@ tag: ## Generate container `{version}` tag
 deploy: stop release
 	@echo 'deploy release latest'
 	@eval $$(docker-machine env $(MACHINE_NAME)); \
-	docker stack deploy -c docker-stack.yml $(STACK_NAME)--with-registry-auth
+	docker stack deploy -c docker-stack.yml $(STACK_NAME) --with-registry-auth
