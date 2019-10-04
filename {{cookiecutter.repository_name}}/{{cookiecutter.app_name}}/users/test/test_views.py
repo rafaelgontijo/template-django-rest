@@ -29,7 +29,7 @@ class TestUserListTestCase(APITestCase):
         eq_(response.status_code, status.HTTP_201_CREATED)
 
         user = User.objects.get(pk=response.data.get('id'))
-        eq_(user.username, self.user_data.get('username'))
+        eq_(user.email, self.user_data.get('email'))
         ok_(check_password(self.user_data.get('password'), user.password))
 
 
@@ -48,10 +48,10 @@ class TestUserDetailTestCase(APITestCase):
         eq_(response.status_code, status.HTTP_200_OK)
 
     def test_put_request_updates_a_user(self):
-        new_first_name = fake.first_name()
-        payload = {'first_name': new_first_name}
+        new_name = fake.name()
+        payload = {'name': new_name}
         response = self.client.put(self.url, payload)
         eq_(response.status_code, status.HTTP_200_OK)
 
         user = User.objects.get(pk=self.user.id)
-        eq_(user.first_name, new_first_name)
+        eq_(user.name, new_name)
