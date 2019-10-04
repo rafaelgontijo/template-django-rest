@@ -18,7 +18,7 @@ class TestUserListTestCase(APITestCase):
 
     def setUp(self):
         self.url = reverse('user-list')
-        self.user_data = model_to_dict(UserFactory.build())
+        self.user_data = model_to_dict(UserFactory.build(), exclude=['last_login'])
 
     def test_post_request_with_no_data_fails(self):
         response = self.client.post(self.url, {})

@@ -16,12 +16,12 @@ class Local(Common):
         '--nologcapture',
         '--with-coverage',
         '--with-progressive',
-        '--cover-package=redtie_backend'
+        '--cover-package={{cookiecutter.app_name}}'
     ]
 
     # Mail
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    EMAIL_HOST = 'localhost'
+    EMAIL_HOST = 'mailhog'
     EMAIL_PORT = 1025
 
     CORS_ORIGIN_ALLOW_ALL = True
