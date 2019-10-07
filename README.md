@@ -10,7 +10,9 @@ O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recurs
 - Desenvolvimento local totalmente dockerizado através do docker-compose.
 - PostgreSQL 11.3+
 - Comece com cobertura de teste completa e implantação contínua.
-- Integração com [Django Rest Framework](http://www.django-rest-framework.org/) completa
+- Integração com [Django Rest Framework](http://www.django-rest-framework.org/).
+- Autenticação com [JWT](https://jwt.io/).
+- Documentação da api gerada automaticamente via [drf-yasg](https://github.com/axnsan12/drf-yasg).
 - Uma base pequena porem robusta - apenas o suficiente para maximizar sua produtividade e nada mais.
 
 ## Começo rápido
