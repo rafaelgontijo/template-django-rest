@@ -5,6 +5,3 @@ from django.utils.translation import ugettext_lazy as _
 class UsersConfig(AppConfig):
     name = '{{cookiecutter.app_name}}.users'
     verbose_name = _('App Users')
-
-    def ready(self):
-        from {{cookiecutter.app_name}}.users import receivers

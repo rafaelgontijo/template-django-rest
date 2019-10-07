@@ -3,5 +3,6 @@
     "app_name": "piedpiper",
     "host": "piedpiper.com",
     "email": "richard.hendriks@piedpiper.com",
-    "description": "Its all about a Weissman score > 5.0"
+    "description": "Its all about a Weissman score > 5.0",
+    "license": "closed source"
 }

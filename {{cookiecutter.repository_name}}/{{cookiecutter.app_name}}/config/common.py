@@ -1,3 +1,4 @@
+import datetime
 import os
 from os.path import join
 
@@ -20,9 +21,9 @@ class Common(Configuration):
 
 
         # Third party apps
-        'rest_framework',            # utilities for rest apis
-        'rest_framework.authtoken',  # token authentication
-        'django_filters',            # for filtering rest endpoints
+        'rest_framework',
+        'django_filters',
+        'drf_yasg',
 
         # Your apps
         '{{cookiecutter.app_name}}.users',
@@ -216,7 +217,12 @@ class Common(Configuration):
             'rest_framework.permissions.IsAuthenticated',
         ],
         'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework.authentication.TokenAuthentication',
+            'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
             'rest_framework.authentication.SessionAuthentication',
         )
+    }
+
+    JWT_AUTH = {
+        'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
+        'JWT_ALLOW_REFRESH': True
     }
