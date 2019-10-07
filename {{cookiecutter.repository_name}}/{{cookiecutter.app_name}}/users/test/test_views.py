@@ -39,9 +39,14 @@ class TestUserDetailTestCase(APITestCase):
     """
 
     def setUp(self):
-        self.user = UserFactory()
+        email = 'john.doe@example.com'
+        password = 'password'
+        self.user = User.objects.create_user(email, password)
+        url_auth = reverse('api-token-auth')
+        resp_auth = self.client.post(url_auth, {'email':email, 'password':password}, format='json')
+        token = resp_auth.data['token']
         self.url = reverse('user-detail', kwargs={'pk': self.user.pk})
-        self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.user.auth_token}')
+        self.client.credentials(HTTP_AUTHORIZATION=f'JWT {token}')
 
     def test_get_request_returns_a_given_user(self):
         response = self.client.get(self.url)

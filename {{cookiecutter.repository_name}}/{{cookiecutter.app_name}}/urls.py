@@ -18,9 +18,9 @@ router.register(r'users', UserCreateViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('api-token-auth/', obtain_jwt_token),
-    path('api-token-refresh/', refresh_jwt_token),
-    path('api-token-verify/', verify_jwt_token),
+    path('api-token-auth/', obtain_jwt_token, name='api-token-auth'),
+    path('api-token-refresh/', refresh_jwt_token, name='api-token-refresh'),
+    path('api-token-verify/', verify_jwt_token, name='api-token-verify'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('swagger<str:format>', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
