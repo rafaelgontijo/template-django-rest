@@ -213,15 +213,19 @@ class Common(Configuration):
             'rest_framework.renderers.JSONRenderer',
             'rest_framework.renderers.BrowsableAPIRenderer',
         ),
-        'DEFAULT_PERMISSION_CLASSES': [
+        'DEFAULT_PERMISSION_CLASSES': (
             'rest_framework.permissions.IsAuthenticated',
-        ],
+        ),
         'DEFAULT_AUTHENTICATION_CLASSES': (
             'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
             'rest_framework.authentication.SessionAuthentication',
-        )
+        ),
+        'DEFAULT_FILTER_BACKENDS': (
+            'django_filters.rest_framework.DjangoFilterBackend',
+        ),
     }
 
+    # JWT
     JWT_AUTH = {
         'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
         'JWT_ALLOW_REFRESH': True
