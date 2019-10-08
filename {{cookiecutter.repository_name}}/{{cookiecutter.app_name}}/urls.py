@@ -22,9 +22,8 @@ urlpatterns = [
     path('api-token-refresh/', refresh_jwt_token, name='api-token-refresh'),
     path('api-token-verify/', verify_jwt_token, name='api-token-verify'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('swagger<str:format>', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('doc<str:format>', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('doc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 
     # the 'api-root' from django rest-frameworks default router
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter
