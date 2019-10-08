@@ -8,20 +8,28 @@ from .serializers import CreateUserSerializer, UserSerializer
 
 class UserViewSet(mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin,
-                  mixins.ListModelMixin,
                   viewsets.GenericViewSet):
     """
-    List, updates and retrieves user accounts
+    Updates and retrieves user accounts
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (IsAdminUser, IsUserOrReadOnly,)
+    permission_classes = (IsUserOrReadOnly,)
+
+
+class UserListViewSet(mixins.ListModelMixin,
+                      viewsets.GenericViewSet):
+    """
+    List users accounts
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (IsAdminUser,)
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {
         'name': ('icontains',),
         'email': ('icontains',),
     }
-
 
 
 class UserCreateViewSet(mixins.CreateModelMixin,
