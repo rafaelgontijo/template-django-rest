@@ -25,7 +25,7 @@ class UserListCreateViewSet(mixins.CreateModelMixin,
     """
     queryset = User.objects.all()
     serializer_class = CreateUserSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (AllowAny,)
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {
         'name': ('icontains',),
