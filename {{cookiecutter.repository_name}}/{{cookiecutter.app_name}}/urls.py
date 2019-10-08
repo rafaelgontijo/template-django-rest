@@ -8,13 +8,12 @@ from rest_framework_jwt.views import(
     obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 )
 from .docs.views import schema_view
-from .users.views import UserViewSet, UserCreateViewSet, UserListViewSet
+from .users.views import UserViewSet, UserListCreateViewSet
 
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'users', UserCreateViewSet)
-router.register(r'users', UserListViewSet)
+router.register(r'users', UserListCreateViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
