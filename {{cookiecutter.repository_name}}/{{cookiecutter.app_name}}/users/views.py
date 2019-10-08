@@ -17,13 +17,14 @@ class UserViewSet(mixins.RetrieveModelMixin,
     permission_classes = (IsUserOrReadOnly,)
 
 
-class UserListViewSet(mixins.ListModelMixin,
-                      viewsets.GenericViewSet):
+class UserListCreateViewSet(mixins.CreateModelMixin,
+                        mixins.ListModelMixin,
+                        viewsets.GenericViewSet):
     """
-    List users accounts
+    List and creates user accounts
     """
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = CreateUserSerializer
     permission_classes = (IsAdminUser,)
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {
@@ -31,12 +32,3 @@ class UserListViewSet(mixins.ListModelMixin,
         'email': ('icontains',),
     }
 
-
-class UserCreateViewSet(mixins.CreateModelMixin,
-                        viewsets.GenericViewSet):
-    """
-    Creates user accounts
-    """
-    queryset = User.objects.all()
-    serializer_class = CreateUserSerializer
-    permission_classes = (AllowAny,)
