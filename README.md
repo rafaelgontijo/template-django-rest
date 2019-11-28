@@ -8,7 +8,7 @@ O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recurs
 - Desenvolvimento moderno de Python com Python 3.6+
 - Django 2.2+
 - Desenvolvimento local totalmente dockerizado através do docker-compose.
-- PostgreSQL 11.3+
+- PostgreSQL 11.5+
 - Comece com cobertura de teste completa e implantação contínua.
 - Integração com [Django Rest Framework](http://www.django-rest-framework.org/).
 - Autenticação com [JWT](https://jwt.io/).
@@ -25,7 +25,7 @@ sudo apt install cookiecutter
 
 Scaffold o seu projeto:
 ```
-cookiecutter gh:ivoryit/template-django-rest
+cookiecutter gh:rafaelgontijo/template-django-rest
 ```
 
 Tente criar um usuário!
