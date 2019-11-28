@@ -30,3 +30,11 @@ class Production(Common):
     }
 
     CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', default=True, cast=bool)
+
+    # Cache
+    CACHES = {
+        'default': {
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': 'redis:6379',
+        },
+    }

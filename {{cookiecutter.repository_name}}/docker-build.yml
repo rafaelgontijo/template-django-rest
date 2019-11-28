@@ -4,5 +4,7 @@ services:
   django:
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile
-    image: '{{cookiecutter.repository_name}}_production:latest'
+      dockerfile: ./docker/django/Dockerfile
+      args:
+        ENVIRONMENT: production
+    image: '{{cookiecutter.app_name}}_production:latest'

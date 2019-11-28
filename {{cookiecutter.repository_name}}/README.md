@@ -7,6 +7,8 @@
 
 - [Docker](https://docs.docker.com/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+- [AWS CLI](https://snapcraft.io/aws-cli)
+- [EB CLI](https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html)
 
 ## Desenvolvimento
 
@@ -46,7 +48,4 @@ Configure o seu Editor/IDE para utilizar o flake8 como linter.
 
 ## Produção
 
-Para o ambiente de produção esse projeto esta preparado para usar o [Docker Swarm](https://docs.docker.com/engine/swarm/).
-
-Para montar o ambiente use a documentação do [Docker Swarm Rocks
-](https://dockerswarm.rocks/).
+Para o ambiente de produção esse projeto esta preparado para usar o [AWS Elastic Beanstalk](https://aws.amazon.com/pt/elasticbeanstalk/) com ambiente [Multi-Container](https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html) e as imagens armazenadas no [AWS ECR](https://aws.amazon.com/pt/ecr/).

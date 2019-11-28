@@ -52,7 +52,6 @@ tag: ## Generate container `{version}` tag
 	@echo 'create tag latest'
 	docker tag $(APP_NAME) $(DOCKER_REPO)/$(APP_NAME):latest
 
-deploy: stop release
+deploy: release
 	@echo 'deploy release latest'
-	@eval $$(docker-machine env $(MACHINE_NAME)); \
-	docker stack deploy -c docker-stack.yml $(STACK_NAME) --with-registry-auth
+	eb deploy

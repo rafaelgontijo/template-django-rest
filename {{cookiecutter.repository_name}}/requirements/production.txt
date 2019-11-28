@@ -10,3 +10,7 @@ gunicorn==19.9.0  # https://github.com/benoitc/gunicorn
 # ------------------------------------------------------------------------------
 django-storages==1.7.1  # https://github.com/jschneier/django-storages
 boto3==1.9.201  # https://github.com/boto/boto3
+
+# Cache
+# ------------------------------------------------------------------------------
+django-redis-cache==2.1.0 # https://github.com/sebleier/django-redis-cache/
