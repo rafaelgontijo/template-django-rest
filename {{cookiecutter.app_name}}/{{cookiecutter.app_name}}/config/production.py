@@ -31,10 +31,12 @@ class Production(Common):
 
     CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', default=True, cast=bool)
 
+    {% if cookiecutter.use_cache == 'y' %}
     # Cache
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
-            'LOCATION': 'redis:6379',
+            'LOCATION': config("CACHE_URL", default="redis:6379"),
         },
     }
+    {% endif %}

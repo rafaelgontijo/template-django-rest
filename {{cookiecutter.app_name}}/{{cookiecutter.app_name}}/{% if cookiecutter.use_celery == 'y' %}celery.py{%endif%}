@@ -1,0 +1,21 @@
+from __future__ import absolute_import
+
+import os
+
+from celery import Celery
+import configurations
+from django.conf import settings
+
+# set the default Django settings module for the 'celery' program.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{cookiecutter.app_name}}.config')
+
+if os.environ.get("DJANGO_DEBUG") == 'True':
+    os.environ.setdefault("DJANGO_CONFIGURATION", "Local")
+else:
+    os.environ.setdefault("DJANGO_CONFIGURATION", "Production")
+
+configurations.setup()
+
+app = Celery('{{cookiecutter.app_name}}')
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

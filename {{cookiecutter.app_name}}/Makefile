@@ -40,6 +40,15 @@ down: ## Down running containers
 clean: stop ## Stop and clean running containers
 	docker-compose down -v
 
+migrate: ## Performs database migrations
+	docker-compose run --rm django python manage.py migrate
+
+makemigrations: ## Create database migrations
+	docker-compose run --rm django python manage.py makemigrations
+
+createsuperuser: ## Create admin user
+	docker-compose run --rm django python manage.py createsuperuser
+
 # Docker release - build, tag and push the container
 release: build publish ## Make a release by building and publishing the `latest` tagged containers to ECR
 

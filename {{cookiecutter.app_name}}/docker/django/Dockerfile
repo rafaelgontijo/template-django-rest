@@ -28,6 +28,17 @@ COPY ./docker/django/start /start
 RUN sed -i 's/\r//' /start
 RUN chmod +x /start
 
+{% if cookiecutter.use_celery == 'y' %}
+
+COPY ./docker/django/celery /celery
+RUN sed -i 's/\r//' /celery
+RUN chmod +x /celery
+
+COPY ./docker/django/celery_schedule /celery_schedule
+RUN sed -i 's/\r//' /celery_schedule
+RUN chmod +x /celery_schedule
+{% endif %}
+
 WORKDIR /app
 
 ENTRYPOINT ["/entrypoint"]

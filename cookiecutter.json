@@ -1,8 +1,12 @@
 {
-    "repository_name": "piedpiper-api",
-    "app_name": "piedpiper",
-    "host": "piedpiper.com",
-    "email": "richard.hendriks@piedpiper.com",
-    "description": "Its all about a Weissman score > 5.0",
-    "license": "closed source"
+    "project_name": "Piedpiper",
+    "app_name": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
+    "host": "{{ cookiecutter.app_name }}.com",
+    "email": "{{ cookiecutter.app_name }}@{{ cookiecutter.host }}",
+    "docker_repository": "xxx.dkr.ecr.xxx.amazonaws.com",
+    "description": "",
+    "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"],
+    "use_mailhog": "y",
+    "use_celery": "y",
+    "use_cache": "y"
 }

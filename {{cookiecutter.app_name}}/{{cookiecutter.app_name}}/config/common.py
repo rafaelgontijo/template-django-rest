@@ -24,6 +24,9 @@ class Common(Configuration):
         'rest_framework',
         'django_filters',
         'drf_yasg',
+        {% if cookiecutter.use_celery == 'y' %}
+        'django_celery_beat',
+        {% endif %}
 
         # Your apps
         '{{cookiecutter.app_name}}.users',
@@ -230,3 +233,8 @@ class Common(Configuration):
         'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
         'JWT_ALLOW_REFRESH': True
     }
+    {% if cookiecutter.use_celery == 'y' %}
+
+    # Celery
+    CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='amqp://rabbitmq')
+    {% endif %}

@@ -1,0 +1,129 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [
+        {% if cookiecutter.use_cache == 'y' %}
+        {
+            "name": "redis_data",
+            "host": {
+                "sourcePath": "/data"
+            }
+        },
+        {% endif %}
+        {% if cookiecutter.use_celery == 'y' %}
+        {
+            "name": "rabbitmq_data",
+            "host": {
+                "sourcePath": "/var/lib/rabbitmq"
+            }
+        },
+        {% endif %}
+        {
+          "name": "nginx-proxy-conf",
+          "host": {
+            "sourcePath": "/var/app/current/proxy/conf.d"
+          }
+        }
+    ],
+    "containerDefinitions": [
+    {
+        "name": "django",
+        "image": "{{cookiecutter.docker_repository}}/{{cookiecutter.app_name}}_production:latest",
+        "essential": true,
+        "memory": 512,
+        {% if cookiecutter.use_cache == 'y' %}
+        "links": [
+            "redis"
+        ],
+        {% endif %}
+        "command": ["/start"]
+    },
+    {% if cookiecutter.use_celery == 'y' %}
+    {
+        "name": "celery",
+        "image": "{{cookiecutter.docker_repository}}/{{cookiecutter.app_name}}_production:latest",
+        "essential": true,
+        "memory": 512,
+        {% if cookiecutter.use_cache == 'y' %}
+        "links": [
+            "redis",
+            "rabbitmq"
+        ],
+        {% else %}
+        "links": [
+            "rabbitmq"
+        ],
+        {% endif %}
+        "command": ["/celery"]
+    },
+    {
+        "name": "celery_schedule",
+        "image": "{{cookiecutter.docker_repository}}/{{cookiecutter.app_name}}_production:latest",
+        "essential": true,
+        "memory": 512,
+        {% if cookiecutter.use_cache == 'y' %}
+        "links": [
+            "redis",
+            "rabbitmq"
+        ],
+        {% else %}
+        "links": [
+            "rabbitmq"
+        ],
+        {% endif %}
+        "command": ["/celery_schedule"]
+    },
+    {
+        "name": "rabbitmq",
+        "image": "rabbitmq:3.8-alpine",
+        "essential": true,
+        "memory": 128,
+        "mountPoints": [
+            {
+                "sourceVolume": "rabbitmq_data",
+                "containerPath": "/var/lib/rabbitmq"
+            }
+        ]
+    },
+    {% endif %}
+    {% if cookiecutter.use_cache == 'y' %}
+    {
+        "name": "redis",
+        "image": "redis:5.0-alpine",
+        "essential": true,
+        "memory": 128,
+        "mountPoints": [
+            {
+                "sourceVolume": "redis_data",
+                "containerPath": "/data"
+            }
+        ]
+    },
+    {% endif %}
+    {
+      "name": "nginx-proxy",
+      "image": "nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "django"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "awseb-logs-nginx-proxy",
+          "containerPath": "/var/log/nginx"
+        },
+        {
+          "sourceVolume": "nginx-proxy-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        }
+      ]
+    }
+    ]
+}
