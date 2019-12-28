@@ -5,10 +5,10 @@ O `template-django-rest` cuida dos detalhes para que você possa se concentrar e
 O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recursos à API e começar a entregar.
 
 ## Highlights
-- Desenvolvimento moderno de Python com Python 3.6+
-- Django 2.2+
+- Desenvolvimento moderno de Python com Python 3.8+
+- Django 3.0+
 - Desenvolvimento local totalmente dockerizado através do docker-compose.
-- PostgreSQL 11.5+
+- PostgreSQL 12+
 - Comece com cobertura de teste completa e implantação contínua.
 - Integração com [Django Rest Framework](http://www.django-rest-framework.org/).
 - Autenticação com [JWT](https://jwt.io/).

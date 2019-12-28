@@ -1,16 +1,16 @@
 -r ./base.txt
 
 # Testing
-mock==2.0.0
-factory-boy==2.11.1
+mock==3.0.5
+factory-boy==2.12.0
 django-nose==1.4.6
 nose-progressive==1.5.2
-coverage==4.5.2
+coverage==5.0.1
 
 # Debug
-ipdb==0.12 # https://github.com/gotcha/ipdb
-ipython==7.2.0
-ptvsd==4.2.10 # https://github.com/microsoft/ptvsd
+ipdb==0.12.3 # https://github.com/gotcha/ipdb
+ipython==7.11.0
+ptvsd==4.3.2 # https://github.com/microsoft/ptvsd
 
 # Linter
-flake8==3.7.8
+flake8==3.7.9

@@ -10,7 +10,7 @@ if __name__ == "__main__":
         # Only attach the debugger when we're the Django that deals with requests
         if os.environ.get('RUN_MAIN') or os.environ.get('WERKZEUG_RUN_MAIN'):
             import ptvsd
-            ptvsd.enable_attach(redirect_output=True)
+            ptvsd.enable_attach()
 
     try:
         from configurations.management import execute_from_command_line

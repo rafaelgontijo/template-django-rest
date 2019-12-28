@@ -1,4 +1,4 @@
-FROM postgres:11.5
+FROM postgres:12-alpine
 
 COPY ./docker/postgres/maintenance /usr/local/bin/maintenance
 RUN chmod +x /usr/local/bin/maintenance/*

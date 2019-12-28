@@ -1,7 +1,6 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -46,7 +45,6 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-@python_2_unicode_compatible
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_('name'), max_length=150)

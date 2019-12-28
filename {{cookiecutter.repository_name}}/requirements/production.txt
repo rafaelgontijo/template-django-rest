@@ -4,12 +4,12 @@
 
 # Django
 # ------------------------------------------------------------------------------
-gunicorn==19.9.0  # https://github.com/benoitc/gunicorn
+gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
 
 # Static and Media Storage
 # ------------------------------------------------------------------------------
-django-storages==1.7.1  # https://github.com/jschneier/django-storages
-boto3==1.9.201  # https://github.com/boto/boto3
+django-storages==1.8  # https://github.com/jschneier/django-storages
+boto3==1.10.45  # https://github.com/boto/boto3
 
 # Cache
 # ------------------------------------------------------------------------------
