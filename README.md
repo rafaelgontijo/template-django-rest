@@ -10,6 +10,7 @@ O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recurs
 - Desenvolvimento local totalmente dockerizado através do docker-compose.
 - PostgreSQL 12+
 - Comece com cobertura de teste completa e implantação contínua.
+- [Celery](http://www.celeryproject.org/) configurado e pronto para usar.
 - Integração com [Django Rest Framework](http://www.django-rest-framework.org/).
 - Autenticação com [JWT](https://jwt.io/).
 - Documentação da api gerada automaticamente via [drf-yasg](https://github.com/axnsan12/drf-yasg).
