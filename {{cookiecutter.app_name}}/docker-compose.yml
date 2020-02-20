@@ -45,6 +45,7 @@ services:
   celery:
     image: {{cookiecutter.app_name}}_django
     depends_on:
+      - django
       - postgres
       - rabbitmq
     volumes:
