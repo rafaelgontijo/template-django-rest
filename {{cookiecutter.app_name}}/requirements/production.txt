@@ -4,13 +4,14 @@
 
 # Django
 # ------------------------------------------------------------------------------
-gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+gunicorn==20.0.4
 
 # Static and Media Storage
 # ------------------------------------------------------------------------------
-django-storages==1.8  # https://github.com/jschneier/django-storages
-boto3==1.10.45  # https://github.com/boto/boto3
-
+django-storages==1.9.1
+boto3==1.12.39 
+{% if cookiecutter.use_cache == 'y' %}
 # Cache
 # ------------------------------------------------------------------------------
-django-redis-cache==2.1.0 # https://github.com/sebleier/django-redis-cache/
+django-redis-cache==2.1.0
+{% endif %}

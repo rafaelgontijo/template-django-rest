@@ -1,14 +1,14 @@
 # Core
 pytz==2019.3
-Django==3.0.1
-Pillow==6.2.1
+Django==3.0.5
+Pillow==7.1.1
 
 # Configuration manager 
 django-configurations==2.2
 python-decouple==3.3
 
 # For the persistence stores
-psycopg2-binary==2.8.3
+psycopg2-binary==2.8.5
 dj-database-url==0.5.0
 
 # Model Tools
@@ -18,13 +18,12 @@ django-model-utils==4.0.0
 djangorestframework==3.11.0
 Markdown==3.1.1
 django-filter==2.2.0
-django-cors-headers==3.2.0
-django-extra-fields==2.0.2
+django-cors-headers==3.2.1
+django-extra-fields==2.0.3
 djangorestframework-jwt==1.11.0
-drf-yasg==1.17.0
+drf-yasg==1.17.1
 {% if cookiecutter.use_celery == 'y' %}
-
 # Celery
-celery==4.4.0
-django-celery-beat==1.5.0
+celery==4.4.2
+django-celery-beat==2.0.0
 {% endif %}

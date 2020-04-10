@@ -5,19 +5,29 @@
 # ------------------------------------------------------------------------------
 ALLOWED_HOSTS={{cookiecutter.host}}
 CORS_ORIGIN_ALLOW_ALL=True
+DEBUG=False
 DJANGO_CONFIGURATION=Production
-DJANGO_DEBUG=False
 DJANGO_SETTINGS_MODULE={{cookiecutter.app_name}}.config
 SECRET_KEY=secret
 
 # AWS
 # ------------------------------------------------------------------------------
-DJANGO_AWS_ACCESS_KEY_ID=
-DJANGO_AWS_SECRET_ACCESS_KEY=
-DJANGO_AWS_STORAGE_BUCKET_NAME=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_STORAGE_BUCKET_NAME=
 
 # Email
 # ------------------------------------------------------------------------------
 EMAIL_HOST=
 EMAIL_HOST_PASSWORD=
 EMAIL_HOST_USER=
+{% if cookiecutter.use_cache == 'y' %}
+# Cache
+# ------------------------------------------------------------------------------
+CACHE_URL=
+{% endif %}
+{% if cookiecutter.use_celery == 'y' %}
+# Celery
+# ------------------------------------------------------------------------------
+CELERY_BROKER_URL=
+{% endif %}

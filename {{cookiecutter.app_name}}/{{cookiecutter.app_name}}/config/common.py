@@ -19,7 +19,6 @@ class Common(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
 
-
         # Third party apps
         'rest_framework',
         'django_filters',
@@ -120,7 +119,7 @@ class Common(Configuration):
 
     # Set DEBUG to False as a default for safety
     # https://docs.djangoproject.com/en/dev/ref/settings/#debu
-    DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
+    DEBUG = config('DEBUG', default=False, cast=bool)
 
     # Password Validation
     # https://docs.djangoproject.com/en/2.0/topics/auth/passwords/#module-django.contrib.auth.password_validation
@@ -234,7 +233,6 @@ class Common(Configuration):
         'JWT_ALLOW_REFRESH': True
     }
     {% if cookiecutter.use_celery == 'y' %}
-
     # Celery
     CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='amqp://rabbitmq')
     {% endif %}
