@@ -20,8 +20,8 @@ class Local(Common):
     ]
 
     # Mail
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     EMAIL_HOST = 'mailhog'
     EMAIL_PORT = 1025
+    EMAIL_USE_TLS = False
 
     CORS_ORIGIN_ALLOW_ALL = True
