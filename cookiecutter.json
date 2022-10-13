@@ -3,7 +3,6 @@
     "app_name": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
     "host": "{{ cookiecutter.app_name }}.com",
     "email": "{{ cookiecutter.app_name }}@{{ cookiecutter.host }}",
-    "docker_repository": "xxx.dkr.ecr.xxx.amazonaws.com",
     "description": "",
     "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"],
     "use_mailhog": "y",
