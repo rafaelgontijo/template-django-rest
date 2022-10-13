@@ -32,7 +32,7 @@ cookiecutter gh:rafaelgontijo/template-django-rest
 Tente criar um usuário!
 
 ```bash
-curl -d '{"username":"'"$RANDOM"'", "password":"test", "email":"test@test.com", "name":"test user"}' \
+curl -d '{"username":"'"$RANDOM"'", "password":"test", "email":"'"$RANDOM"'@test.com", "name":"test user"}' \
      -H "Content-Type: application/json" \
      -X POST http://localhost:8000/api/v1/users/
 ```
