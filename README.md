@@ -6,7 +6,7 @@ O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recurs
 
 ## Highlights
 - Desenvolvimento moderno de Python com Python 3.10
-- Django 4.1
+- Django 4.0
 - Desenvolvimento local totalmente dockerizado através do docker-compose.
 - PostgreSQL 12
 - Comece com cobertura de teste completa e implantação contínua.
