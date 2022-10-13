@@ -18,36 +18,36 @@ help: ## This help.
 
 # Build the container
 build: ## Build the container release
-	docker-compose -f docker-build.yml build
+	docker compose -f docker-build.yml build
 
 # Build the container
 build-nc: ## Build the container without caching
-	docker-compose build --no-cache
+	docker compose build --no-cache
 
 # Build and run the container
 up: ## Spin up the project
-	docker-compose up --build
+	docker compose up --build
 
 test: ## Run tests from the project
-	docker-compose run --rm django python manage.py test
+	docker compose run --rm django python manage.py test
 
 stop: ## Stop running containers
-	docker-compose stop
+	docker compose stop
 
 down: ## Down running containers
-	docker-compose down
+	docker compose down
 
 clean: stop ## Stop and clean running containers
-	docker-compose down -v
+	docker compose down -v
 
 migrate: ## Performs database migrations
-	docker-compose run --rm django python manage.py migrate
+	docker compose run --rm django python manage.py migrate
 
 makemigrations: ## Create database migrations
-	docker-compose run --rm django python manage.py makemigrations
+	docker compose run --rm django python manage.py makemigrations
 
 createsuperuser: ## Create admin user
-	docker-compose run --rm django python manage.py createsuperuser
+	docker compose run --rm django python manage.py createsuperuser
 
 # Docker release - build, tag and push the container
 release: build publish ## Make a release by building and publishing the `latest` tagged containers to ECR

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.10'
 
 volumes:
   postgres_data: {}
@@ -13,7 +13,9 @@ services:
     image: {{cookiecutter.app_name}}_django
     depends_on:
       - postgres
+{% if cookiecutter.use_mailhog == 'y' %}      
       - mailhog
+{% endif %}
     volumes:
       - .:/app
     env_file:
@@ -66,7 +68,7 @@ services:
     command: /celery_schedule
 
   rabbitmq:
-    image: rabbitmq:3.8-alpine
+    image: rabbitmq:3.11-alpine
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     env_file:

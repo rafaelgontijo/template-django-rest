@@ -5,10 +5,10 @@ O `template-django-rest` cuida dos detalhes para que você possa se concentrar e
 O Scaffolding de um projeto leva segundos. Basta adicionar seus próprios recursos à API e começar a entregar.
 
 ## Highlights
-- Desenvolvimento moderno de Python com Python 3.8+
-- Django 3.0+
+- Desenvolvimento moderno de Python com Python 3.10
+- Django 4.1
 - Desenvolvimento local totalmente dockerizado através do docker-compose.
-- PostgreSQL 12+
+- PostgreSQL 12
 - Comece com cobertura de teste completa e implantação contínua.
 - [Celery](http://www.celeryproject.org/) configurado e pronto para usar.
 - Integração com [Django Rest Framework](http://www.django-rest-framework.org/).

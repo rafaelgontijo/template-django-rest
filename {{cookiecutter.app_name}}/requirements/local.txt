@@ -1,16 +1,10 @@
 -r ./base.txt
 
 # Testing
-mock==4.0.2
-factory-boy==2.12.0
-django-nose==1.4.6
-nose-progressive==1.5.2
-coverage==5.0.4
+mock==4.0.3
+factory-boy==3.2.1
+coverage==6.5.0
 
 # Debug
-ipdb==0.13.2
-ipython==7.13.0
-ptvsd==4.3.2
-
-# Linter
-flake8==3.7.9
+ipython==8.5.0
+debugpy==1.6.3
